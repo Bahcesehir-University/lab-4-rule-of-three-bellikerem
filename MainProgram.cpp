@@ -127,14 +127,15 @@ public:
         //   7. Return *this
         
         g_assignmentCount++;
+        
         if (this == &other){
             return *this;
         }
+        
         delete[] m_data;
         m_length = other.m_length;
         m_data = new char[m_length + 1];
         strcpy(m_data, other.m_data);
-        
         return *this;
     }
 
@@ -160,7 +161,7 @@ public:
         
         delete[] m_data;
         m_length = strlen(newData);
-        newData = new char[m_length + 1];
+        m_data = new char[m_length + 1];
         strcpy(m_data, newData);
     }
 
